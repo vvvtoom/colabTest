@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>팀 협업툴 샘플 페이지</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>팀 협업툴 샘플</h1>
+        <p>근태 관리 및 지출결의서 프로토타입</p>
+      </header>
+
+      <nav class="tabs" id="tabs">
+        <button data-page="employee-attendance" class="active">사원 근태</button>
+        <button data-page="admin-attendance">관리자 근태</button>
+        <button data-page="employee-expense">사원 지출결의서</button>
+        <button data-page="admin-expense">관리자 지출결의서</button>
+      </nav>
+
+      <main>
+        <section id="employee-attendance" class="page active"></section>
+        <section id="admin-attendance" class="page"></section>
+        <section id="employee-expense" class="page"></section>
+        <section id="admin-expense" class="page"></section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
