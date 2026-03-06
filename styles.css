@@ -40,7 +40,9 @@ body {
 .tabs {
 	display: flex;
 	gap: 8px;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
 	margin-bottom: 16px;
 }
 
@@ -51,6 +53,8 @@ body {
 	border-radius: 8px;
 	cursor: pointer;
 	font-weight: 600;
+	flex: 0 0 auto;
+	white-space: nowrap;
 }
 
 .tabs button.active {
@@ -124,6 +128,7 @@ textarea {
 	padding: 8px 12px;
 	background: #fff;
 	cursor: pointer;
+	touch-action: manipulation;
 }
 
 .btn.primary {
@@ -193,6 +198,7 @@ th {
 	background: #fff;
 	border: 2px solid #9aa1ac;
 	padding: 14px;
+	overflow-x: hidden;
 }
 
 .expense-title {
@@ -208,10 +214,12 @@ th {
 	grid-template-columns: 1.2fr 2fr;
 	gap: 10px;
 	margin-bottom: 10px;
+	min-width: 0;
 }
 
 .boxed {
-	display: inline-block;
+	display: block;
+	width: 100%;
 	border: 1px solid #7f8794;
 }
 
@@ -281,6 +289,7 @@ th {
 	width: 100%;
 	border: 1px solid #7f8794;
 	border-collapse: collapse;
+	min-width: 0;
 }
 
 .date-row th,
@@ -300,6 +309,7 @@ th {
 	border-top: none;
 	display: grid;
 	grid-template-columns: 1fr 70px 120px;
+	min-width: 0;
 }
 
 .bottom-sign > div {
@@ -329,8 +339,127 @@ th {
 }
 
 @media (max-width: 960px) {
+	.app {
+		padding: 16px;
+	}
+
+	.card {
+		padding: 14px;
+	}
+
 	.expense-top-grid,
 	.two-cols {
 		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 768px) {
+	.app {
+		padding: 12px;
+	}
+
+	.app-header h1 {
+		font-size: 24px;
+	}
+
+	.card {
+		padding: 12px;
+		border-radius: 10px;
+	}
+
+	.inline-field {
+		min-width: 100%;
+		flex: 1 1 100%;
+	}
+
+	.expense-sheet {
+		padding: 10px;
+	}
+
+	/* Override inline width styles generated in HTML template */
+	.expense-sheet th[style],
+	.expense-sheet td[style] {
+		width: auto !important;
+	}
+
+	.account-grid {
+		grid-template-columns: 56px minmax(0, 1fr);
+	}
+
+	.sign-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.sign-grid .head,
+	.sign-cell {
+		font-size: 12px;
+		word-break: keep-all;
+	}
+
+	.bottom-sign {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 48px;
+	}
+
+	#admin-attendance table {
+		table-layout: fixed;
+	}
+
+	#admin-attendance th,
+	#admin-attendance td {
+		word-break: break-word;
+		font-size: 13px;
+	}
+
+	.expense-title {
+		font-size: 24px;
+		letter-spacing: 3px;
+	}
+
+	#admin-expense .list-item .btn {
+		width: 100%;
+	}
+
+	#admin-expense .card > .row .btn {
+		flex: 1 1 auto;
+	}
+}
+
+@media (max-width: 480px) {
+	input,
+	select,
+	textarea,
+	button {
+		font-size: 16px;
+	}
+
+	.tabs button {
+		padding: 9px 12px;
+	}
+
+	.status-pill {
+		padding: 4px 8px;
+	}
+
+	.expense-title {
+		font-size: 21px;
+		letter-spacing: 2px;
+	}
+
+	.date-row th,
+	.date-row td,
+	.detail-row th,
+	.detail-row td {
+		padding: 5px;
+		font-size: 12px;
+	}
+
+	.sign-grid .head,
+	.sign-cell {
+		padding: 3px;
+		font-size: 11px;
+	}
+
+	.stamp {
+		width: 50px;
 	}
 }

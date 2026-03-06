@@ -270,12 +270,7 @@ function renderEmployeeExpensePage() {
           </div>
 
           <div class="boxed">
-            <div class="sign-grid">
-              <div class="head">담당</div>
-              <div class="head">사무국장</div>
-              <div class="head">재정위원</div>
-              <div class="head">담임목사</div>
-            </div>
+            
           </div>
         </div>
 
